@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <meta charset="UTF-8">
+    <title>Mesa Florist - Flower Delivery by Karen's Flowers</title>
+    <!-- my scripts DEFERRRRR-->
+    <!-- You need to load CSS before loading any jQuery UI stuff. I usually do all of the external stylesheets, then my custom one at the bottom because files are read from top to bottom and yours being below the others will make it easier to override styles coming from other stylesheets -->
+    <link rel="stylesheet" href="jquery/jquery-ui.css">
+    <link href="owl-carousel/owl.carousel.css" rel="stylesheet">
+    <link href="owl-carousel/owl.theme.css" rel="stylesheet">
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- You only need to link to jQuery and jQuery UI once, and as long as you list those before any other files that depend on them you'll be good. The order I have them in here removes most console errors and shows your carousel again. The problem was the order of the files. jQuery UI depends on jQuery, so you have to load jQuery first. Then if any of your other stuff is also built with jQuery or uses jQuery UI effects or elements, they need to be linked after jQuery and jQuery UI. Your custom scripts will always be last to give the dependencies a chance to load first so that they will work -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <!-- <link rel="stylesheet" href="/resources/demos/style.css"> -->
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script> 
+    <script src="owl-carousel/owl.carousel.js"></script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script> 
+    <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+    <script  src="script.js"  defer></script>
+  </head>
+
+    <body>
+      <header>
+        <a href="#"><img id="logo" src="images/logo.png" alt="karen's flowers logo."></a>
+        <h1 class="hidden">Karen's flowers</h1>
+        <!--Main Nav -- hell ass nav, ref muzak maker assignment-->
+        <nav> 
+          <h2 class="hidden">Main Navigation</h2>
+          <div id="navMobile"> 
+            <input type="checkbox" aria-label="hamburger menu toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+            <ul id="nav">
+              <li><a href="#weddings" title="Weddings">Weddings</a></li>
+              <li><a href="#prom" title="Prom">Prom</a></li>
+              <li><a href="#love" title="Love">Love</a></li>
+              <li><a href="#holiday" title="Holiday">Holiday</a></li>
+              <li><a href="#sympathy" title="sympathy">Sympathy</a></li>
+              <li><a href="#account" title="account">Account</a></li>
+            </ul>
+          </div>
+        </nav>
+        <!--End Nav-->
+      </header>
+      
+        <main id="main">
+          <!--IMAGES-->
+          <section id="owl-demo" class="owl-carousel owl-theme" aria-label="Images of different Bouquets">
+            <div class="item"><img src="images/weddings.png" alt="flowers"></div>
+            <div class="item"><img src="images/sale.png" alt="flowers"></div>
+            <div class="item"><img src="images/dry.png" alt="flowers"></div>
+          </section>
+          <!-- END IMAGES-->
+          <!--Start Products-->
+          <section class="container">
+            <h2 id="productTitle">Popular Bouquets</h2>
+            <section class="containerProducts">
+              <h3 class="hide" hidden>products</h3>
+              <section class="product">
+                <img src="images/wedding.jpeg" alt="Wedding flowers" class="productImg">
+                <div class="productDescription">
+                  <h3 class="productTitle">Wedding Bouquets</h3>
+                  <span class="productPrice">Starting at $150.00</span>
+                </div>
+                <a href="#" class="ShopNowBtn">SHOP NOW</a>
+              </section>
+              <section class="product">
+                <img src="images/paper-wrapped-bouquests.jpeg" alt="Dried flowers." class="productImg">
+                <div class="productDescription">
+                  <h3 class="productTitle">Ever Lasting</h3>
+                  <span class="productPrice">Starting at $45.00</span>
+                </div>
+                <a href="#" class="ShopNowBtn">SHOP NOW</a>
+              </section>
+              <section class="product">
+                <img src="images/red-roses.jpg" alt="A dozen red roses." class="productImg">
+                <div class="productDescription">
+                  <h3 class="productTitle">Roses</h3>
+                  <span class="productPrice">Starting at $59.99</span>
+                </div>
+                <a href="#" class="ShopNowBtn">SHOP NOW</a>
+              </section>
+              <section class="product">
+                <img src="images/bouquet-on-couch.jpeg" alt="Organic Flowers" class="productImg">
+                <div class="productDescription">
+                  <h3 class="productTitle">Everyday Organic</h3>
+                  <span class="productPrice">Starting at $80.00</span>
+                </div>
+                <a href="#" class="ShopNowBtn">SHOP NOW</a>
+              </section>
+            </section>
+          </section>
+          <!--End Prod-->
+          <!--Start testimonials-->
+          <section class="container containerTestimonials containerMap">
+            <div >
+              <h2 class="sectionTitle">For the Best Flowers in Mesa, Choose Karen's Flowers</h2>
+              <p id="testimonialText">At Karen's Flowers, our professional and courteous staff is committed to creating beautiful flower arrangements and floral gifts to fit any occasion. As a trusted local florist, we offer flower delivery throughout Mesa, AZ and surrounding areas, as well as nationwide delivery through our network of reliable florists. Karen's Flowers also offers convenient, same-day floral delivery for all of your last minute gift needs!</p>
+              <address>
+                2048 E. Baseline Rd., Ste. 9 <br>
+                Mesa, AZ  85204
+              </address>
+            </div>
+            <div id="map"></div>
+          </section>
+          <!--end testimonials-->
+          <section class="container containerTestimonials containerMap">
+            <section>
+              <h2 class="sectionTitle">Upcoming Holidays</h2>
+                  <ul id="api">
+                    
+                  </ul>
+              </li>
+            </section>
+            <section aria-label="Datepicker" id="date" class="subsec">
+              <label for="datepicker" class="sr-only sectionTitle">Calendar</label>
+              <div id="datepicker"></div>
+              <p id="dateDisplay"></p>
+            </section>
+          </section>
+        </main><!--end main-->
+        <!--Start footer-->
+        <footer id="mainFooter">
+          <section class="footerSection">
+            <h2 class="footerTitle">Store Hours</h2>
+            <ul id="hours">
+              <li>Monday    9:00 AM To 5:00 PM</li>
+              <li>Tuesday   9:00 AM To 5:00 PM</li>
+              <li>Wednesday 9:00 AM To 5:00 PM</li>
+              <li>Thursday  9:00 AM To 5:00 PM</li>
+              <li>Friday    9:00 AM To 5:00 PM</li>
+              <li>Saturday  9:00 AM To 1:00 PM</li>
+              <li>Sunday Closed</li>     
+            </ul>
+          </section>
+          <section class="footerSection">
+            <h2 class="footerTitle">Contact</h2>
+            <p class="footerText">Phone: <a href="tel:(480)926-9544">(480)926-9544</a></p>
+            <p class="footerText">Email: <a href="mailto:Karensflowers@gmail.com">Karensflowers@gmail.com</a></p>
+          </section>
+          <section class="footerSection">
+            <h2 class="footerTitle">Quick Links</h2>
+            <a href="#" class="footerLink">Home</a>
+            <a href="#" class="footerLink">Weddings</a>
+            <a href="#" class="footerLink">Prom</a>
+            <a href="#" class="footerLink">Love</a>
+            <a href="#" class="footerLink">Holiday</a>
+            <a href="#" class="footerLink">Sympathy</a>
+          </section>
+          <section class="footerSection">
+            <h2 class="footerTitle">Sign Up For Special Offers!</h2>
+            <form>
+              <label for="footerInput">By subscribing to our mailing list you will always get latest news and updates from us.</label>
+              <input id="footerInput" type="email"  placeholder="Enter your email">
+              <input id="submitButton" type="submit" name="basicSubmit">
+            </form>
+          </section>
+          <p id="copy"><small>Karen's Flowers</small></p>
+        </footer>
+        <!--End footer-->
+  </body>
+</html>

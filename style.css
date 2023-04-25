@@ -57,7 +57,9 @@ body {
   margin: 0;
   font-family: "Inconsolata";
 }
-
+#dateDisplay{
+  padding-top: 18px;
+}
 img {
   display: block;
   width: 100%;
